@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { Colors } from '../constants'
-
+import { HeroIcons } from './HeroIcons'
 import { ActionButton } from '../button/ActionButton'
 
 export const HeroSlide = (): JSX.Element => {
@@ -14,6 +14,7 @@ export const HeroSlide = (): JSX.Element => {
         textAlign: 'center'
       }}
     >
+      <HeroIcons />
       <h1
         style={{
           fontSize: '3.5rem',
