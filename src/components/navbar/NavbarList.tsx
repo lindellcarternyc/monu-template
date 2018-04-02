@@ -2,7 +2,10 @@ import * as React from 'react'
 
 import { NavbarListItem, NavbarListItemProps } from './NavbarListItem' 
 
-export const NavbarList = (props: { items: NavbarListItemProps[] }): JSX.Element => {
+export interface NavbarListProps {
+  items: NavbarListItemProps[]
+}
+export const NavbarList = (props: NavbarListProps): JSX.Element => {
   return (
     <ul 
       style={{
