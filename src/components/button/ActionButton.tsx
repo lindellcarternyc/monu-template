@@ -4,7 +4,7 @@ import { Button, ButtonProps } from './Button'
 import { ActionButtonBackground } from './ActionButtonBackground'
 
 interface ActionButtonProps extends ButtonProps { 
-  // fixed?: 'right'
+  isHovered?: boolean
 }
 interface ActionButtonState {
   isHovered: boolean
@@ -22,8 +22,20 @@ export class ActionButton extends React.Component<ActionButtonProps, ActionButto
     this.state = { isHovered: false }
   }
 
-  onMouseOver = () => { this.setState({ isHovered: true }) }
-  onMouseOut = () => { this.setState({ isHovered: false }) }
+  componentWillReceiveProps(nextProps: ActionButtonProps) {
+    if (nextProps.isHovered === true) {
+      this.setState({ isHovered: true })
+    } else if (nextProps.isHovered === false ) {
+      this.setState({ isHovered: false  })
+    }
+  }
+
+  onMouseOver = () => {
+    this.setState({ isHovered: true })
+  }
+  onMouseOut = () => {
+    this.setState({ isHovered: false }) 
+  }
 
   render() {
     const hoverColor = this.state.isHovered ? 'white' : undefined
