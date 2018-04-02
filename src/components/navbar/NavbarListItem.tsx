@@ -1,9 +1,11 @@
 import * as React from 'react'
 
 import { Colors } from '../constants'
+import { NavbarDropdown } from './NavbarDropdown'
 
-interface NavbarListItemProps {
-  title: string
+export interface NavbarListItemProps {
+  title: string,
+  options?: string[]
 }
 interface NavbarListItemState {
   isHovered: boolean
@@ -34,6 +36,12 @@ export class NavbarListItem extends React.Component<NavbarListItemProps, NavbarL
         onMouseOver={this.onMouseOver}
         onMouseOut={this.onMouseOut}
       >{this.props.title}
+      {this.props.options !== undefined && 
+        <NavbarDropdown 
+          options={this.props.options}
+          visible={this.state.isHovered}
+        />
+      }
       </li>
     )
   }

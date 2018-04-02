@@ -25,11 +25,21 @@ export const Navbar = (): JSX.Element => {
           {title: 'Portfolio'},
           {title: 'Team'},
           {title: 'Services'},
-          {title: 'Blog'},
+          {
+            title: 'Blog',
+            options: [
+              'Blog1',
+              'Blog2',
+              'Blog3',
+              'Blog-detail'
+            ]
+          },
           {title: 'Contact Us'}
         ]}
       />
-      <ActionButton text="Hire Us" />
+      <div>
+        <ActionButton text="Hire Us" />
+      </div>
     </div>
   )
 }
