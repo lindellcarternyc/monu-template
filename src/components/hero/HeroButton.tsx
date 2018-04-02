@@ -10,6 +10,15 @@ interface HeroButtonProps {
 interface HeroButtonState {
   isHovered: boolean
 }
+
+const HeroButtonIcon = (props: { action: 'previous' | 'next' }): JSX.Element => {
+  const direction = props.action === 'previous' 
+    ? 'left'
+    : 'right'
+  return (
+    <i className={`fas fa-chevron-${direction}`} />
+  )
+}
 export class HeroButton extends React.Component<HeroButtonProps, HeroButtonState> {
   constructor(props: HeroButtonProps) {
     super(props)
@@ -24,7 +33,7 @@ export class HeroButton extends React.Component<HeroButtonProps, HeroButtonState
         onMouseOver={this._onMouseOver}
         onMouseOut={this._onMouseOut}
       >
-        {this.props.action === 'previous' ? '<' : '>'}
+        <HeroButtonIcon action={this.props.action} />
       </button>
     )
   }
@@ -34,7 +43,7 @@ export class HeroButton extends React.Component<HeroButtonProps, HeroButtonState
       position: 'absolute' as 'absolute',
       top: '50%',
       transform: 'translate(-50%, -50%)',
-      fontSize: '3rem', lineHeight: '3rem',
+      fontSize: '2.5rem', lineHeight: '2.5rem',
       width: '3.5rem', height: '3.5rem',
       borderRadius: '50%',
       border: 'none',
