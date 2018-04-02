@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { makeStyles } from './styles'
+import { makeStyles } from './make-styles'
 
 export interface ButtonProps {
   text: string

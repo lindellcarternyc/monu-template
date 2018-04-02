@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import { Colors } from '../constants'
+
 interface ActionButtonBackgroundProps {
   visible: boolean
 }
@@ -7,7 +9,7 @@ export const ActionButtonBackground = (props: ActionButtonBackgroundProps): JSX.
   return(
     <div 
       style={{
-        backgroundColor: '#3f7b9b',
+        backgroundColor: Colors.Blue,
         position: 'absolute',
         width: props.visible ? 'calc(100% - 1px)' : '0',
         height: 'calc(100% - 1px)',
