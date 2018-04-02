@@ -21,7 +21,6 @@ export const HeroIcons = (): JSX.Element => {
   return (
     <ul
       style={{
-        border: '1px solid red',
         margin: '0', padding: '0'
       }}
     >

@@ -8,7 +8,6 @@ export const HeroSlide = (): JSX.Element => {
   return (
     <div
       style={{
-        border: '1px solid purple',
         height: '100%',
         paddingTop: '10rem',
         textAlign: 'center'
