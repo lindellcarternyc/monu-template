@@ -12,7 +12,8 @@ interface ActionButtonState {
 
 const styles = {
   position: 'relative' as 'relative',
-  display: 'inline-block' as 'inline-block'
+  display: 'inline-block' as 'inline-block',
+  zIndex: 4
 }
 export class ActionButton extends React.Component<ActionButtonProps, ActionButtonState> {
   constructor(props: ActionButtonProps) {
