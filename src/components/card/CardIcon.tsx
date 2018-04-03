@@ -2,11 +2,12 @@ import * as React from 'react'
 
 import { Colors } from '../constants'
 
+import { Icon } from '../Icon'
+
 interface CardIconProps { 
   name: string
 }
 export const CardIcon = (props: CardIconProps): JSX.Element => {
-  const className = `fas fa-${props.name}`
   return (
     <div
       style={{
@@ -14,12 +15,10 @@ export const CardIcon = (props: CardIconProps): JSX.Element => {
         marginTop: '3rem'
       }}
     >
-      <i 
-        className={className}
-        style={{
-          color: Colors.Blue,
-          fontSize: '2.5rem'
-        }}
+      <Icon 
+        name={props.name}
+        color={Colors.Blue}
+        fontSize="2.5rem"
       />
     </div>
   )

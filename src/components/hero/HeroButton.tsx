@@ -2,6 +2,8 @@ import * as React from 'react'
 
 import { Colors } from '../constants'
 
+import { Icon } from '../Icon'
+
 interface HeroButtonProps {
   action: 'previous' | 'next'
   visible: boolean
@@ -16,7 +18,7 @@ const HeroButtonIcon = (props: { action: 'previous' | 'next' }): JSX.Element => 
     ? 'left'
     : 'right'
   return (
-    <i className={`fas fa-chevron-${direction}`} />
+    <Icon name={`chevron-${direction}`}/>
   )
 }
 export class HeroButton extends React.Component<HeroButtonProps, HeroButtonState> {

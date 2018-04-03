@@ -1,9 +1,9 @@
 import * as React from 'react'
 
 import { Colors } from '../constants'
+import { Icon } from '../Icon'
 
 const HeroIcon = (props: { name: string }): JSX.Element => {
-  const className = `fab fa-${props.name}`
   return (
     <li 
       style={{
@@ -12,7 +12,7 @@ const HeroIcon = (props: { name: string }): JSX.Element => {
         marginLeft: '0.25rem', marginRight: '0.25rem',
         color: Colors.Blue
       }}
-    ><i className={className}/>
+    ><Icon brand name={props.name} />
     </li>
   )
 }
