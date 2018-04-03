@@ -10,7 +10,9 @@ export const GridColumn = (props: GridColumnProps): JSX.Element => {
 }
 
 interface GridProps {
-  children?: React.ReactNode
+  children?: React.ReactNode,
+  maxWidth?: number,
+  columns?: 3 | 4
 }
 interface GridState {
   viewport: 'mobile' | 'tablet' | 'desktop'
@@ -54,10 +56,13 @@ export class Grid extends React.Component<GridProps, GridState> {
       <div
         style={{
           width: 'calc(100% - 2rem)',
+          maxWidth: this.props.maxWidth,
           display: 'grid',
           gridTemplateColumns: `repeat(${this._numColumns}, 1fr)`,
           gridColumnGap: '1rem',
-          gridRowGap: '1rem'
+          gridRowGap: '1rem',
+          position: 'relative',
+          ...this._maxWidthStyles
         }}
       >
         {this.props.children}
@@ -65,7 +70,25 @@ export class Grid extends React.Component<GridProps, GridState> {
     )
   }
 
-  private get _numColumns(): 1 | 2 | 4 {
+  private get _maxWidthStyles(): { [key: string]: string } {
+    let styles = { }
+    if ( this.props.maxWidth ) {
+      styles = {
+        left: '50%',
+        transform: 'translateX(calc(-50% - 1rem))'
+      }
+    }
+    return styles
+  }
+
+  private get _numColumns(): 1 | 2 | 3 | 4 {
+    if ( this.props.columns === 3) {
+      switch ( this.state.viewport ) {
+        case 'desktop': return 3
+        case 'tablet': return 2
+        default: return 1
+      }
+    }
     switch ( this.state.viewport ) {
       case 'desktop': return 4
       case 'tablet' : return 2
