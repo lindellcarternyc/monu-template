@@ -8,6 +8,9 @@ import { CardTitle } from './CardTitle'
 interface PriceCardProps {
   isSelected?: boolean
   select?: () => void
+  header: string
+  price: string
+  details: string[]
 }
 export const PriceCard = (props: PriceCardProps): JSX.Element => {
   return (
@@ -17,21 +20,15 @@ export const PriceCard = (props: PriceCardProps): JSX.Element => {
           props.select()
         }
       }}
-      header="Basic"
+      header={props.header}
       hover={{
         backgroundColor: 'white'
       }}
-      text={[
-        'PSD Included',
-        'Free Installation',
-        'Free One Year Domain',
-        'Free Six Months Hosting',
-        'Full Support'
-      ]}
+      text={props.details}
       action="Purchase"
       isSelected={props.isSelected}
     >
-      <CardTitle text="300" color={Colors.Blue} />
+      <CardTitle text={props.price} color={Colors.Blue} />
     </Card>
   )
 }

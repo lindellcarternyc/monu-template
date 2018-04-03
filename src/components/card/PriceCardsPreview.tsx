@@ -28,18 +28,45 @@ export class PriceCardsPreview extends React.Component<{}, PriceCardsPreviewStat
             <PriceCard 
               isSelected={selectedId === 0}
               select={this.selectCard(0)}
+              header="Basic"
+              price="100"
+              details={[
+                'PSD Included',
+                'Free Installation',
+                'Free One Year Domain',
+                'Free Six Months Hosting',
+                'Full Support'
+              ]}
             />
           </GridColumn>
           <GridColumn>
             <PriceCard 
               isSelected={selectedId === 1}
               select={this.selectCard(1)}
+              header="Advanced"
+              price="300"
+              details={[
+                'PSD Included',
+                'Free Installation',
+                'Free One Year Domain',
+                'Free Six Months Hosting',
+                'Full Support'
+              ]}
             />
           </GridColumn>
           <GridColumn>
             <PriceCard 
               isSelected={selectedId === 2} 
               select={this.selectCard(2)}
+              header="Pro"
+              price="500"
+              details={[
+                'PSD Included',
+                'Free Installation',
+                'Free One Year Domain',
+                'Free Six Months Hosting',
+                'Full Support'
+              ]}
             />
           </GridColumn>
         </Grid>
