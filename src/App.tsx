@@ -4,6 +4,7 @@ import { Navbar } from './components/navbar/Navbar'
 import { Hero } from './components/hero/Hero'
 import { ServicesPreview } from './components/card/ServicesPreview'
 import { PriceCardsPreview } from './components/card/PriceCardsPreview'
+import { DetailsPreview } from './components/details/DetailsPreview'
 
 const Desktop = 944
 
@@ -56,6 +57,7 @@ class App extends React.Component<{}, AppState> {
         <Hero />
         <ServicesPreview />
         <PriceCardsPreview />
+        <DetailsPreview />
       </div>
     )
   }
