@@ -6,6 +6,7 @@ import { CardIcon } from './CardIcon'
 import { CardTitle } from './CardTitle'
 import { CardText } from './CardText'
 import { CardAction, CardActionProps } from './CardAction'
+import { CardHeader } from './CardHeader'
 
 const filterChildren = (children: React.ReactNode, typeName: string) => {
   return React.Children.toArray(children).filter(child => {
@@ -16,9 +17,10 @@ const filterChildren = (children: React.ReactNode, typeName: string) => {
 interface CardProps {
   children?: React.ReactNode
   icon?: string
-  text?: string
+  text?: string | string[]
   title?: string
   action?: string
+  header?: string
   rounded?: boolean
   hoverColor?: string
   hover?: {
@@ -27,6 +29,8 @@ interface CardProps {
     titleColor?: string
     action?: boolean
   }
+  isSelected?: boolean
+  onClick?: () => void
 }
 interface CardState {
   isHovered: boolean
@@ -36,7 +40,15 @@ export class Card extends React.Component<CardProps, CardState> {
     super(props)
 
     this.state = {
-      isHovered: false
+      isHovered: this.props.isSelected || false
+    }
+  }
+
+  componentWillReceiveProps(nextProps: CardProps) {
+    if (nextProps.isSelected === true) {
+      this.setState({ isHovered: true })
+    } else if (nextProps.isSelected === false) {
+      this.setState({ isHovered: false })
     }
   }
 
@@ -48,13 +60,14 @@ export class Card extends React.Component<CardProps, CardState> {
           borderRadius: this.props.rounded ? '0.5rem' : undefined,
           background: this._background,
           position: 'relative',
-          padding: '2rem',
           textAlign: 'center',
           height: '100%'
         }}
         onMouseOver={this._onMouseOver}
         onMouseOut={this._onMouseOut}
+        onClick={this._onClick}
       >
+        {this._renderHeader()}
         {this._renderIcon()}
         {this._renderTitle()}
         {this._renderText()}
@@ -63,13 +76,29 @@ export class Card extends React.Component<CardProps, CardState> {
     )
   }
 
+  private _onClick = (evt: React.SyntheticEvent<HTMLElement>) => {
+    if (this.props.onClick !== undefined) {
+      this.props.onClick()
+    }
+  }
+
   private _onMouseOver = () => {
     this.setState ({ isHovered: true })
   }
   private _onMouseOut = () => {
-    this.setState({ isHovered: false })
+    const isHovered = this.props.isSelected || false
+    this.setState({ isHovered })
   }
 
+  private _renderHeader() {
+    const { header } = this.props
+
+    if ( header !== undefined ) {
+      return <CardHeader text={header}/>
+    } else {
+      return undefined
+    }
+  }
   private _renderIcon() {
     const { icon, children } = this.props
     if (icon !== undefined) {
@@ -92,10 +121,17 @@ export class Card extends React.Component<CardProps, CardState> {
     } else if (children !== undefined) {
       const Title = filterChildren(children, 'CardTitle')
       if ( Title !== undefined ) {
+
+        // return React.cloneElement()
+        const titleColor = (Title as { props: { color?: string }}).props.color
+        const colorProp = this._titleColor || titleColor
         return React.cloneElement(
           Title as React.ReactElement<{color: string}>,
-          {color: this._titleColor}
+          ...[
+            {color: colorProp}
+          ]
         )
+
       }
       return Title
     }

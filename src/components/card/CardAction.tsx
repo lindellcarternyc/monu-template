@@ -8,7 +8,7 @@ export interface CardActionProps {
 }
 export const CardAction = (props: CardActionProps) => {
   return (
-    <div>
+    <div style={{marginBottom: '2rem'}}>
       <ActionButton text={props.text} isHovered={props.isHovered}/>
     </div>
   )
