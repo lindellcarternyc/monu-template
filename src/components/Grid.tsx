@@ -13,6 +13,7 @@ interface GridProps {
   children?: React.ReactNode,
   maxWidth?: number,
   columns?: 3 | 4
+  gapless?: boolean
 }
 interface GridState {
   viewport: 'mobile' | 'tablet' | 'desktop'
@@ -59,8 +60,8 @@ export class Grid extends React.Component<GridProps, GridState> {
           maxWidth: this.props.maxWidth,
           display: 'grid',
           gridTemplateColumns: `repeat(${this._numColumns}, 1fr)`,
-          gridColumnGap: '1rem',
-          gridRowGap: '1rem',
+          gridColumnGap: this.props.gapless === true ? '0' : '1rem',
+          gridRowGap: this.props.gapless === true ? '0' : '1rem',
           position: 'relative',
           ...this._maxWidthStyles
         }}
