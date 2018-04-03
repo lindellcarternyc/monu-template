@@ -55,7 +55,7 @@ export class Grid extends React.Component<GridProps, GridState> {
     return (
       <div
         style={{
-          width: 'calc(100% - 2rem)',
+          width: '100%',
           maxWidth: this.props.maxWidth,
           display: 'grid',
           gridTemplateColumns: `repeat(${this._numColumns}, 1fr)`,
@@ -75,7 +75,7 @@ export class Grid extends React.Component<GridProps, GridState> {
     if ( this.props.maxWidth ) {
       styles = {
         left: '50%',
-        transform: 'translateX(calc(-50% - 1rem))'
+        transform: 'translateX(-50%)'
       }
     }
     return styles
