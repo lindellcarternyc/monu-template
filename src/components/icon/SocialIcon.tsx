@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import { Icon } from './Icon'
+import { HoverIcon } from './HoverIcon'
 
 interface SocialIconProps {
   name: string
@@ -9,9 +10,11 @@ interface SocialIconProps {
   hoverColor?: string
 }
 export const SocialIcon = (props: SocialIconProps): JSX.Element => {
-  return (
-    <Icon brand {...props}/>
-  )
+  const { hoverColor, ...rest } = props
+  if ( hoverColor !== undefined ) {
+    return <HoverIcon brand hoverColor={hoverColor} {...rest} />
+  }
+  return <Icon brand {...rest} />
 }
 
 interface SocialIconListProps {
