@@ -6,6 +6,7 @@ import { ServicesPreview } from './components/card/ServicesPreview'
 import { PriceCardsPreview } from './components/card/PriceCardsPreview'
 import { DetailsPreview } from './components/details/DetailsPreview'
 import { HeadshotsPreview } from './components/headshot/HeadshotsPreview'
+import { BlogPreviewsPreview } from './components/blog/BlogPreviewsPreview'
 
 const Desktop = 944
 
@@ -60,6 +61,7 @@ class App extends React.Component<{}, AppState> {
         <PriceCardsPreview />
         <DetailsPreview />
         <HeadshotsPreview />
+        <BlogPreviewsPreview />
       </div>
     )
   }
