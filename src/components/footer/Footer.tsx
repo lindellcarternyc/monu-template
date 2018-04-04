@@ -22,6 +22,26 @@ export const Footer = (): JSX.Element => {
         <FooterLinksColumn />
         <FooterBlogsColumn />
       </Grid>
+      <hr 
+        style={{
+          // backgroundColor: Colors.LightGrey,
+          border: `1px solid ${Colors.LightGrey}`
+        }}
+      />
+      <div style={{display: 'flex', justifyContent: 'space-between'}}>
+        <p>Copyright (c)2018 Lindell.io All Rights reserved</p>
+        <ul
+          style={{
+            listStyle: 'none',
+            padding: '0',
+            display: 'flex'
+          }}
+        >
+          <li style={{marginLeft: '1rem'}}>Privacy Policy</li>
+          <li style={{marginLeft: '1rem'}}>Contact</li>
+          <li style={{marginLeft: '1rem'}}>Support</li>
+        </ul>
+      </div>
     </Container>
   )
 }
