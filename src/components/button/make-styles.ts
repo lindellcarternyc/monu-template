@@ -1,8 +1,12 @@
 import { Colors } from '../constants'
 
-export const makeStyles = (options: { color?: string }) => {
+interface ButtonStyleOptions {
+  color?: string
+  fill?: boolean
+}
+export const makeStyles = (options: ButtonStyleOptions) => {
   return {
-    background: 'transparent',
+    background: options.fill ? Colors.Blue : 'transparent',
     border: `1px solid ${Colors.Blue}`,
     borderRadius: '2rem',
     paddingLeft: '2rem', paddingRight: '2rem',
