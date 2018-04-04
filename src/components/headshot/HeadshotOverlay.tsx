@@ -1,36 +1,8 @@
 import * as React from 'react'
 
-import { SocialIcon } from '../icon/SocialIcon'
+import { SocialIcons } from '../icon/SocialIcon'
 
 import { Colors } from '../constants'
-
-const HeadshotOverlayIcon = (props: { name: string }): JSX.Element => {
-  return (
-    <li 
-      style={{
-        listStyleType: 'none',
-        display: 'inline-block',
-        margin: '0 0.5rem'
-      }}
-    ><SocialIcon name={props.name} />
-    </li>
-  )
-}
-
-const HeadshotOverlayIcons = (): JSX.Element => {
-  return (
-    <ul
-      style={{
-        margin: '0', padding: '0'
-      }}
-    >
-      <HeadshotOverlayIcon name="facebook-f"/>
-      <HeadshotOverlayIcon name="twitter" />
-      <HeadshotOverlayIcon name="google-plus-g" />
-      <HeadshotOverlayIcon name="instagram" />
-    </ul>
-  )
-}
 
 export const HeadshotOverlay = (props: { isVisible: boolean }): JSX.Element => {
   return (
@@ -56,7 +28,7 @@ export const HeadshotOverlay = (props: { isVisible: boolean }): JSX.Element => {
       >
           <h3>Lindell Carter</h3>
           <p>designer</p>
-          <HeadshotOverlayIcons />
+          <SocialIcons hoverColor={Colors.Blue}/>
       </div>
     </div>
   )
