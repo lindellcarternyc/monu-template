@@ -37,7 +37,7 @@ export const FooterContactColumn = (props: {}): JSX.Element => {
   return (
     <FooterColumn header="Contact">
       <FooterContactList />
-      <SocialIcons color="white" maxWidth={200}/>
+      <SocialIcons color="white" hoverColor={Colors.Blue} maxWidth={200}/>
     </FooterColumn>
   )
 }

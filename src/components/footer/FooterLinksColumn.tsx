@@ -24,7 +24,8 @@ class FooterLinksListItem extends React.Component<FooterLinksListItemProps, Foot
           marginLeft: '0', 
           marginBottom: '0.75rem',
           listStyleType: 'none',
-          color: this.state.isHovered ? Colors.Blue : Colors.LightGrey
+          color: this.state.isHovered ? Colors.Blue : Colors.LightGrey,
+          transition: 'color 0.3s ease'
         }}
         onMouseOver={this._onMouseOver}
         onMouseOut={this._onMouseOut}
