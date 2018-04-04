@@ -6,6 +6,7 @@ interface SocialIconProps {
   name: string
   color?: string
   fontSize?: string
+  hoverColor?: string
 }
 export const SocialIcon = (props: SocialIconProps): JSX.Element => {
   return (
@@ -16,9 +17,10 @@ export const SocialIcon = (props: SocialIconProps): JSX.Element => {
 interface SocialIconListProps {
   maxWidth?: number
   color?: string
+  hoverColor?: string
 }
 export const SocialIcons = (props: SocialIconListProps): JSX.Element => {
-  const { maxWidth, color } = props
+  const { maxWidth, color, hoverColor } = props
   return (
     <div
       style={{
@@ -27,10 +29,10 @@ export const SocialIcons = (props: SocialIconListProps): JSX.Element => {
         justifyContent: 'space-between'
       }}
     >
-      <SocialIcon name="facebook-f" color={color} />
-      <SocialIcon name="twitter" color={color} />
-      <SocialIcon name="google-plus-g" color={color} />
-      <SocialIcon name="instagram" color={color} />
+      <SocialIcon name="facebook-f" color={color} hoverColor={hoverColor}/>
+      <SocialIcon name="twitter" color={color} hoverColor={hoverColor}/>
+      <SocialIcon name="google-plus-g" color={color} hoverColor={hoverColor}/>
+      <SocialIcon name="instagram" color={color} hoverColor={hoverColor}/>
     </div>
   )
 }
