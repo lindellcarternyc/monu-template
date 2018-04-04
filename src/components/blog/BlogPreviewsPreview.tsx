@@ -1,7 +1,8 @@
 import * as React from 'react'
 
-import { Container } from '../container'
+// import { Container } from '../container'
 import { Grid, GridColumn } from '../Grid'
+import { Section } from '../Section'
 
 import { BlogPreview } from './BlogPreview'
 
@@ -17,7 +18,10 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, `
 
 export const BlogPreviewsPreview = (): JSX.Element => {
   return (
-    <Container>
+    <Section
+      title="Blog & News"
+      subtitle="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+    >
       <Grid columns={3} maxWidth={900}>
         <GridColumn>
           <BlogPreview 
@@ -44,6 +48,6 @@ export const BlogPreviewsPreview = (): JSX.Element => {
           />
         </GridColumn>
       </Grid>
-    </Container>
+    </Section>
   )
 }

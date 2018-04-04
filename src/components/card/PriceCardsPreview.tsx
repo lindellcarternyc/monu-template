@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Container } from '../container'
+import { Section } from '../Section'
 import { Grid, GridColumn } from '../Grid'
 import { PriceCard } from './PriceCard'
 
@@ -22,7 +22,11 @@ export class PriceCardsPreview extends React.Component<{}, PriceCardsPreviewStat
   render() {
     const { selectedId } = this.state
     return (
-      <Container backgroundColor={Colors.LightBlue}>
+      <Section 
+        title="Our Pricing"
+        subtitle="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+        backgroundColor={Colors.LightBlue}
+      >
         <Grid maxWidth={800} columns={3}>
           <GridColumn>
             <PriceCard 
@@ -70,7 +74,7 @@ export class PriceCardsPreview extends React.Component<{}, PriceCardsPreviewStat
             />
           </GridColumn>
         </Grid>
-      </Container>
+      </Section>
     )
   }
 }
