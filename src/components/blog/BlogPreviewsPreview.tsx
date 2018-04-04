@@ -18,7 +18,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, `
 export const BlogPreviewsPreview = (): JSX.Element => {
   return (
     <Container>
-      <Grid columns={3}>
+      <Grid columns={3} maxWidth={900}>
         <GridColumn>
           <BlogPreview 
             image={Blog1}
