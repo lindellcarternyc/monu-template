@@ -3,12 +3,10 @@ import * as React from 'react'
 import { Colors } from '../constants'
 import { ActionButton } from '../button/ActionButton'
 
-const Blog1 = require('../../assets/images/blogpics/blog1.jpg')
-
-const BlogPreviewImage = (): JSX.Element => {
+const BlogPreviewImage = (props: { src: string }): JSX.Element => {
   return (
     <img 
-      src={Blog1}
+      src={props.src}
       style={{
         width: '100%'
       }}
@@ -16,19 +14,19 @@ const BlogPreviewImage = (): JSX.Element => {
   )
 }
 
-const BlogPreviewTitle = (): JSX.Element => {
+const BlogPreviewTitle = (props: { text: string }): JSX.Element => {
   return (
     <h3
       style={{
         color: Colors.DarkGrey,
         margin: '0.75em 0'
       }}
-    >How to Improve Your Sales Volume
+    >{props.text}
     </h3>
   )
 }
 
-const BlogPreviewDate = (): JSX.Element => {
+const BlogPreviewDate = (props: { date: string }): JSX.Element => {
   return (
     <div
       style={{
@@ -43,7 +41,7 @@ const BlogPreviewDate = (): JSX.Element => {
           display: 'inline-block'
         }}
       >
-        07 May
+        {props.date}
       </p>
       <div 
         style={{
@@ -57,16 +55,22 @@ const BlogPreviewDate = (): JSX.Element => {
   )
 }
 
-const BlogPreviewDescription = (): JSX.Element => {
+const BlogPreviewDescription = (props: { text: string }): JSX.Element => {
   return (
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
-      sed do eiusmod teminc ididunt ut labore et dolore.Lorem ipsum dolor sit amet.
+      {props.text}
     </p>
   )
 }
 
-export const BlogPreview = (): JSX.Element => {
+interface BlogPreviewProps {
+  image: string
+  title: string
+  date: string
+  description: string
+}
+export const BlogPreview = (props: BlogPreviewProps): JSX.Element => {
+  const { image, title, date, description } = props
   return (
     <div
       style={{
@@ -74,10 +78,10 @@ export const BlogPreview = (): JSX.Element => {
         marginBottom: '1.5rem'
       }}
     >
-      <BlogPreviewImage />
-      <BlogPreviewTitle />
-      <BlogPreviewDate />
-      <BlogPreviewDescription />
+      <BlogPreviewImage src={image} />
+      <BlogPreviewTitle text={title} />
+      <BlogPreviewDate date={date} />
+      <BlogPreviewDescription text={description} />
       <ActionButton text="Continue Reading" />
     </div>
   )
