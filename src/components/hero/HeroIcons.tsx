@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { Colors } from '../constants'
-import { Icon } from '../Icon'
+import { SocialIcon } from '../icon/SocialIcon'
 
 const HeroIcon = (props: { name: string }): JSX.Element => {
   return (
@@ -12,7 +12,7 @@ const HeroIcon = (props: { name: string }): JSX.Element => {
         marginLeft: '0.25rem', marginRight: '0.25rem',
         color: Colors.Blue
       }}
-    ><Icon brand name={props.name} />
+    ><SocialIcon name={props.name} />
     </li>
   )
 }

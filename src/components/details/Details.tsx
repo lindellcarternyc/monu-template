@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Icon } from '../Icon'
+import { Icon } from '../icon/Icon'
 
 const DetailsIcon = (props: { name: string }): JSX.Element => {
   return (

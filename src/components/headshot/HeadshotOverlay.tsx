@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Icon } from '../Icon'
+import { SocialIcon } from '../icon/SocialIcon'
 
 import { Colors } from '../constants'
 
@@ -12,7 +12,7 @@ const HeadshotOverlayIcon = (props: { name: string }): JSX.Element => {
         display: 'inline-block',
         margin: '0 0.5rem'
       }}
-    ><Icon brand name={props.name} />
+    ><SocialIcon name={props.name} />
     </li>
   )
 }

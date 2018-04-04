@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-interface IconProps {
+export interface IconProps {
   name: string
   brand?: boolean
   color?: string
