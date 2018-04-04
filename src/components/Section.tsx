@@ -9,6 +9,7 @@ interface SectionProps {
   subtitle: string
   children?: React.ReactNode
   backgroundColor?: string
+  backgroundImage?: string
 }
 
 const SectionTitleStyles = {
@@ -17,7 +18,11 @@ const SectionTitleStyles = {
 }
 export const Section = (props: SectionProps): JSX.Element => {
   return (
-    <Container backgroundColor={props.backgroundColor}>
+    // <div>
+    <Container 
+      backgroundColor={props.backgroundColor}
+      backgroundImage={props.backgroundImage}
+    >
       <h2 
         style={SectionTitleStyles}
       >{props.title}
@@ -31,5 +36,6 @@ export const Section = (props: SectionProps): JSX.Element => {
       </p>
       {props.children}
     </Container>
+    // </div>
   )
 }

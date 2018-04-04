@@ -3,6 +3,7 @@ import * as React from 'react'
 interface ContainerProps {
   children?: React.ReactNode
   backgroundColor?: string
+  backgroundImage?: string
 }
 export const Container = (props: ContainerProps): JSX.Element => {
   return (
